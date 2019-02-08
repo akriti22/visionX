@@ -1,0 +1,78 @@
+#:  import main vision1
+#:  import ListAdapter kivy.adapters.listadapter.ListAdapter
+#:  import ListItemButton kivy.uix.listview.ListItemButton 
+
+
+
+Vision1:
+ 
+<Vision1>:
+    orientation: "vertical"
+    first_name_text_input: first_name
+    student_list: students_list_view
+    padding: 10
+    spacing: 10
+
+    BoxLayout:
+
+        size_hint: (1, .2)
+
+        height: 50
+        pos_hint: {'top' : 1}
+        canvas.before:
+            Color:
+                rgba: (0, .45, .45 ,1)
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        
+        Label:
+
+            text: "Vision X"
+            font_size: 40
+            bold: True
+            size_hint_x: .9
+
+        Button:
+            
+            text: " = "
+            size_hint_x: .1
+    BoxLayout:
+        height: 50
+        Button:
+            text: " camera add"
+
+
+ 
+    BoxLayout:
+        size_hint_y: None
+        height: "40dp"
+ 
+        Label:
+            text: "First Name"
+        TextInput:
+            id: first_name
+        
+    BoxLayout:
+        size_hint_y: None
+        height: "40dp"
+        Button:
+            text: "Submit"
+            size_hint_x: 15
+            on_press: root.submit_student()
+        Button:
+            text: "Delete"
+            size_hint_x: 15
+            on_press: root.delete_student()
+        Button:
+            text: "Replace"
+            size_hint_x: 15
+            on_press: root.replace_student()
+ 
+    # Define starting data and point to the ListItemButton
+    # in the Python code
+    ListView:
+        id: students_list_view
+        adapter:
+            ListAdapter(data=["Akriti Guarav"], cls=main.StudentListButton)
+ 

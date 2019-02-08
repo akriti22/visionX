@@ -1,0 +1,21 @@
+<Drawer>:
+	title: "Main Menu"
+	#side Panel
+	BoxLayout:
+		orientation: "vertical"
+		Button:
+			text: "Button 1"
+		Button:
+			text: "Button 2"
+		Button:
+			text: "Button 3"
+		Button:
+			text: "Button 4"
+
+#Main panel
+
+	BoxLayout:
+		orientation: "vertical"
+		Button:
+			text: "Show Side Panel"
+			on_press: root.toggle_state()

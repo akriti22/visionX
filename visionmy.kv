@@ -1,0 +1,115 @@
+#:  import main vision
+#:  import ListAdapter kivy.adapters.listadapter.ListAdapter
+#:  import ListItemButton kivy.uix.listview.ListItemButton 
+
+
+
+Vision:
+ 
+<Vision>:
+    orientation: "vertical"
+    text_input: test
+    camera_list: camera_list_view
+    padding: 10
+    spacing: 10
+    height: self.height
+    # Header 
+
+    BoxLayout:
+
+        size_hint: (1, .2)
+
+        
+        pos_hint: {'top' : 1}
+        canvas.before:
+            Color:
+                rgba: (0, .45, .45 ,1)
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        
+        Label:
+
+            text: "Vision X"
+            font_size: 40
+            bold: True
+            size_hint_x: .9
+
+        Button:
+            
+            text: " = "
+            size_hint_x: .1
+
+    # camera part
+    BoxLayout:
+
+        
+        orientation:  "vertical"
+        BoxLayout:
+            
+            Button:
+                text: " camera name"
+                size_hint_y: 1
+                on_press: 
+            Button:
+                text: " camera location " 
+                size_hint_y: 1
+        BoxLayout:
+            height: "20dp"
+            Label:
+                text: " camera view"   
+                id: camera
+            Label:
+                text: " view"
+     
+        BoxLayout:
+            size_hint_y: None
+            height: "30dp"
+     
+            Label:
+                text: "Input"
+            TextInput:
+                id: test
+                multiline: False
+            
+        BoxLayout:
+            size_hint_y: None
+            height: "40dp"
+            Button:
+                text: "Delete"
+                size_hint_x: 15
+                on_press: root.delete()
+            Button:
+                text: "Add"
+                size_hint_x: 5
+                on_press: root.add()
+        
+    # camera list view
+    
+    BoxLayout:
+        orientation: "vertical"
+        
+        GridLayout:
+            size_hint: 1, None
+            size_hint_y: None
+            height: 25
+            cols: 4
+
+            Label:
+                text: "User ID"
+            Label:
+                text: "User Name"
+            Label:
+                text: " test"
+            Label:
+                text: "check"
+
+            
+        ListView:
+            color: 0, 0, 1, 1
+            id: camera_list_view
+
+            adapter:
+                ListAdapter(data=["Akriti Guarav" +  " akjhsjkahk" + " kjhdjchkj"], cls=main.VisionListButton)
+
+

@@ -1,0 +1,98 @@
+#:  import main vision
+#:  import ListAdapter kivy.adapters.listadapter.ListAdapter
+#:  import ListItemButton kivy.uix.listview.ListItemButton 
+
+
+
+Vision:
+ 
+<Vision>:
+    orientation: "vertical"
+    text_input: test
+    student_list: students_list_view
+    padding: 10
+    spacing: 10
+
+    BoxLayout:
+
+        size_hint: (1, .2)
+
+        height: 50
+        pos_hint: {'top' : 1}
+        canvas.before:
+            Color:
+                rgba: (0, .45, .45 ,1)
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        
+        Label:
+
+            text: "Vision X"
+            font_size: 40
+            bold: True
+            size_hint_x: .9
+
+        Button:
+            
+            text: " = "
+            size_hint_x: .1
+    BoxLayout:
+        height: 50
+        Button:
+            text: " camera name"
+        Button:
+            text: " camera location " 
+        Label:
+            text: " camera view"   
+        Label:
+            text: " view"
+ 
+    BoxLayout:
+        size_hint_y: None
+        height: "40dp"
+ 
+        Label:
+            text: "Input"
+        TextInput:
+            id: test
+        
+    BoxLayout:
+        size_hint_y: None
+        height: "40dp"
+        Button:
+            text: "Add"
+            size_hint_x: 15
+            on_press: root.add()
+        Button:
+            text: "Delete"
+            size_hint_x: 15
+            on_press: root.delete()
+        
+ 
+    # Define starting data and point to the ListItemButton
+    # in the Python code
+    BoxLayout:
+        orientation: "vertical"
+
+        GridLayout:
+            size_hint: 1, None
+            size_hint_y: None
+            height: 25
+            cols: 4
+
+            Label:
+                text: "User ID"
+            Label:
+                text: "User Name"
+            Label:
+                text: " test"
+            Label:
+                test: "check"
+
+            
+        ListView:
+            id: students_list_view
+            adapter:
+                ListAdapter(data=["Akriti Guarav" +  " akjhsjkahk" + " kjhdjchkj"], cls=main.StudentListButton)
+ 

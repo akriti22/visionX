@@ -1,0 +1,14 @@
+<Controller>
+	label_wid: my_custom_label
+
+	BoxLayout:
+		orientation: 'horizontal'
+		padding: 20
+
+		Button:
+			text: 'my controller info is : '+ root.info
+			on_press: root.do_action()
+
+		Label:
+			id: my_custom_label
+			text: 'my label before button press'
